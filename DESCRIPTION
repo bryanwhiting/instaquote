@@ -1,12 +1,17 @@
 Package: instaquote
 Type: Package
-Title: What the Package Does (Title Case)
-Version: 0.1.0
-Author: Who wrote it
-Maintainer: The package maintainer <yourself@somewhere.net>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
-License: What license is it under?
+Title: Makes Plots of Quotes
+Version: 0.0.9000
+Authors@R: c(
+    person("Bryan", "Whiting", email="seekgospelanalysis@gmail.com", role=c("aut", "cre", "cph"),
+    comment = c(URL = "<https://www.bryanwhiting.com>")),
+    person("Gospel Analysis", role = c("fnd"), comment = c(URL = "<https://www.gospelanalysis.com>"))
+    )
+Maintainer: Bryan Whiting <seekgospelanalysis@gmail.com>
+Description: Ever want to generate a quote you can share on social media or in an Rmarkdown
+  file? This package will take in some text you provide (html/markdown accepted)
+  and will produce a simple plot with plain background.
+License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 Suggests: 
@@ -14,3 +19,9 @@ Suggests:
 Config/testthat/edition: 3
 URL: https://github.com/bryanwhiting/instaquote
 BugReports: https://github.com/bryanwhiting/instaquote/issues
+Imports: 
+    ggtext (>= 0.1.1),
+    ggplot2 (>= 3.0.0),
+    glue (>= 1.2.0),
+    grid (>= 4.0.0)
+RoxygenNote: 7.1.1
