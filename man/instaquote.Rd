@@ -4,7 +4,12 @@
 \alias{instaquote}
 \title{Generate a ggplot of a quote}
 \usage{
-instaquote(text, bg_color = "#56B4E9", text_color = "white")
+instaquote(
+  text,
+  bg_color = "#56B4E9",
+  text_color = "white",
+  caption = "gospelanalysis.com"
+)
 }
 \arguments{
 \item{text}{Text you want to pass in. use generate_text().}
