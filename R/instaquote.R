@@ -1,11 +1,3 @@
-span <- function(text, size) {
-  glue::glue(
-    "<span style='font-size:{size}pt; font-family:Helvetica;'>
-  {text}
-  </span>"
-  )
-}
-
 #' Generate HTML for quotes
 #'
 #' @param title Title
@@ -19,6 +11,15 @@ span <- function(text, size) {
 #' @examples
 #' insta_text("hi there!")
 insta_text <- function(title, subtitle = NULL, title_size = 30, subtitle_size = 12) {
+  # Don't want to confuse this with the global span
+  span <- function(text, size) {
+    glue::glue(
+      "<span style='font-size:{size}pt; font-family:Helvetica;'>
+    {text}
+    </span>"
+    )
+  }
+
   top <- span(title, size = title_size)
   text <- top
   if (!is.null(subtitle)) {
@@ -44,7 +45,16 @@ insta_text <- function(title, subtitle = NULL, title_size = 30, subtitle_size = 
 #' @examples
 #' txt <- insta_text("hello world")
 #' instaquote(txt)
-instaquote <- function(text, bg_color = "#56B4E9", text_color = "white", caption='gospelanalysis.com') {
+instaquote <- function(title,
+                       subtitle = NULL,
+                       title_size = 30,
+                       subtitle_size = 12,
+                       bg_color = "#56B4E9",
+                       text_color = "white",
+                       caption = "gospelanalysis.com") {
+
+  text <- insta_text(title = title, subtitle = subtitle, title_size = title_size, subtitle_size = subtitle_size)
+
   df <- data.frame(text = text, x = 1, y = 1)
 
   ggplot2::ggplot(df, ggplot2::aes(x = x, y = x, label = text)) +
